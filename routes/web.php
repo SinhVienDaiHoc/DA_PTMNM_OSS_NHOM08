@@ -32,6 +32,19 @@ Route::prefix('admin')
     ->middleware(['auth', IsAdmin::class])
     ->group(function () {
 
+        //QUẢN LÍ USER
+        Route::prefix('user')->name('user.')->group(function () {
+
+            //  Danh sách User (INDEX)
+            Route::get('/', [UserController::class, 'index'])
+                ->name('index'); // Tên Route: admin.user.index
+
+            // Chi tiết User (SHOW)
+            Route::get('/{user}', [UserController::class, 'show'])
+                ->name('show'); // Tên Route: admin.user.show
+
+
+        });
 
         // TRANG ADMIN HOME (sau khi login)
         Route::get('/view', function () {
@@ -44,16 +57,12 @@ Route::prefix('admin')
 
         // WARNING
         Route::get('/warning', [AdminController::class, 'warning'])->name('warning');
-
-   
-
-
-        });
+    });
 
 
-    
-    
-   
+
+
+
 
 //====================== END ADMIN ROUTE============================================
 
@@ -78,7 +87,7 @@ Route::get('/chinhsachbaomat', [PolicyController::class, 'chinhsachbaomat'])->na
 Route::get('/chinhsachthanhtoan', [PolicyController::class, 'chinhsachthanhtoan'])->name('chinhsachthanhtoan');
 
 
-    
+
 //====================== END CLIENT ROUTE============================================
 
 
@@ -108,9 +117,3 @@ Route::post('/dang-xuat', [AuthController::class, 'logout'])->name('logout');
 Route::get('admin/login', [AdminLoginController::class, 'showLoginForm'])->name('admin.login');
 Route::post('admin/login', [AdminLoginController::class, 'login'])->name('admin.login.post');
 Route::post('admin/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
-
-
-
-
-
-
