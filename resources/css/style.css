@@ -1,0 +1,38 @@
+/* MÀU NỀN HEADER */
+.custom-header {
+    background-color: #996666;   /* màu nâu bánh ngọt, thích thì đổi */
+}
+
+/* Nút tìm kiếm */
+.search-btn {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+}
+
+.search-btn i {
+    color: #555;
+}
+
+/* Cho nguyên cụm search có nền trắng, không dính màu header */
+.input-group {
+    background-color: #ffffff;
+    border-radius: 40px;
+    overflow: hidden;
+}
+.custom-header {
+    background-color: #FFF7F0;   /* 👉 màu nền */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Màu chữ */
+.custom-header span,
+.custom-header a {
+    color: #4A3F35 !important;   /* màu nâu cafe đẹp */
+}
+
+/* Màu icon */
+.custom-header i {
+    color: #4A3F35 !important;
+}

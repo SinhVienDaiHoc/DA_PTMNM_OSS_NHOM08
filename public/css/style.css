@@ -1,0 +1,59 @@
+/* ================= HEADER ================= */
+
+/* Header dính trên cùng khi scroll, GIỮ màu nền cũ */
+.custom-header {
+    background-color: #996666 !important;  /* màu nâu ban đầu */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+    top: 0;
+    z-index: 1000;
+}
+
+
+/* KHÔNG đổi màu chữ/icon nữa, để nó dùng màu cũ từ bootstrap/app */
+
+
+/* ================= SEARCH ================= */
+
+/* Nút tìm kiếm */
+.search-btn {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+}
+
+.search-btn i {
+    color: #555;
+}
+
+/* Cho nguyên cụm search có nền trắng, không dính màu header */
+.input-group {
+    background-color: #ffffff;
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+
+/* ================= BANNER CAROUSEL ================= */
+
+.hero {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Ảnh trong carousel */
+.hero .carousel-item img {
+    width: 100%;
+    height: 550px;          /* chỉnh chiều cao banner ở đây */
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+}
+
+/* Cho màn hình nhỏ */
+@media (max-width: 768px) {
+    .hero .carousel-item img {
+        height: 260px;
+    }
+}
