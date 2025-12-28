@@ -87,6 +87,22 @@ Route::get('/chinhsachbaomat', [PolicyController::class, 'chinhsachbaomat'])->na
 Route::get('/chinhsachthanhtoan', [PolicyController::class, 'chinhsachthanhtoan'])->name('chinhsachthanhtoan');
 
 
+// GIỎ HÀNG CLIENT
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
+Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
+
+// DANH MỤC CLIENT
+Route::get('/danh-muc/{id}', [ProductController::class, 'showByCategory'])->name('category.show');
+
+//SẢN PHẨM CLIENT
+Route::get('/san-pham/{id}', [ProductController::class, 'detail'])->name('product.detail');
+
+// THANH TOÁN
+Route::get('/thanhtoan', [CheckoutController::class, 'show'])->name('checkout.show');
+Route::post('/thanhtoan', [CheckoutController::class, 'process'])->name('checkout.process');
+
 
 //====================== END CLIENT ROUTE============================================
 

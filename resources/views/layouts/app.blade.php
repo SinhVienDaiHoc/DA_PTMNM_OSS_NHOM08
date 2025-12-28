@@ -98,8 +98,8 @@
         <div class="ms-auto d-flex align-items-center gap-3">
 
           {{-- GIỎ HÀNG --}}
-          <a href="#">Giỏ hàng</a>
-          {{-- <a href="{{ route('cart.index') }}" class="position-relative text-dark text-decoration-none">
+          
+          <a href="{{ route('cart.index') }}" class="position-relative text-dark text-decoration-none">
             <i class="bi bi-cart3 fs-4"></i>
             @php
             $cartCount = session('cart') ? array_sum(array_column(session('cart'), 'quantity')) : 0;
@@ -110,7 +110,7 @@
             </span>
 
             <span class="ms-1 d-none d-lg-inline">Giỏ hàng</span>
-          </a> --}}
+          </a>
 
           <div class="dropdown">
             <a href="#" class="text-dark text-decoration-none dropdown-toggle d-flex align-items-center gap-2" data-bs-toggle="dropdown">
@@ -230,10 +230,10 @@
     </a>
 </li>
 
-        @foreach($globalCategories as $cate)
+         @foreach($globalCategories as $cate)
         <li>
-          {{-- {{ route('category.show', $cate->id) }} --}}
-          <a class="dropdown-item py-2" href="">
+
+          <a class="dropdown-item py-2" href="{{ route('category.show', $cate->id) }}">
             {{ $cate->name }}
           </a>
         </li>
