@@ -68,7 +68,7 @@ class AdminVoucherController extends Controller
      */
     public function edit(Voucher $voucher)
     {
-        return view('admin.vouchers.edit', compact('voucher'));
+        return view('admin.voucher.edit', compact('voucher'));
     }
 
 

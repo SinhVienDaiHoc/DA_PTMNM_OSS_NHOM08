@@ -62,24 +62,25 @@ Route::prefix('admin')
 
 
 
-    //VOUCHER
-    Route::prefix('voucher')->name('voucher.')->group(function () {
-        // Hiển thị danh sách Vouchers
-        Route::get('/', [AdminVoucherController::class, 'index'])->name('index');
+        //VOUCHER
+        Route::prefix('voucher')->name('voucher.')->group(function () {
+            // Hiển thị danh sách Vouchers
+            Route::get('/', [AdminVoucherController::class, 'index'])->name('index');
 
-        // Thêm các route CRUD (Tạo, Sửa, Xóa) khác nếu cần
-        Route::get('/create', [AdminVoucherController::class, 'create'])->name('create');
-        Route::post('/store', [AdminVoucherController::class, 'store'])->name('store');
+            // Thêm các route CRUD (Tạo, Sửa, Xóa) khác nếu cần
+            Route::get('/create', [AdminVoucherController::class, 'create'])->name('create');
+            Route::post('/store', [AdminVoucherController::class, 'store'])->name('store');
 
-        Route::get('/edit/{id}', [AdminVoucherController::class, 'edit'])->name('edit');
-        Route::put('/update/{id}', [AdminVoucherController::class, 'update'])->name('update');
+            Route::get('/edit/{voucher}', [AdminVoucherController::class, 'edit'])->name('edit');
 
-        Route::delete('/delete/{id}', [AdminVoucherController::class, 'destroy'])->name('destroy');
+            Route::put('/update/{voucher}', [AdminVoucherController::class, 'update'])->name('update');
 
-        Route::get('/{voucher}/stats', [AdminVoucherController::class, 'stats'])->name('stats'); //thống kê
+            Route::delete('/delete/{voucher}', [AdminVoucherController::class, 'destroy'])->name('destroy');
 
+            Route::get('/{voucher}/stats', [AdminVoucherController::class, 'stats'])->name('stats'); //thống kê
+
+        });
     });
-});
 
 
 
