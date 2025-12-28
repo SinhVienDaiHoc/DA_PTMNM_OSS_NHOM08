@@ -159,11 +159,11 @@
 
             <nav class="admin-nav">
                 <div class="admin-nav-section-title">Quản lý</div>
-                <a href="#" class="admin-nav-link"> Dashboard</a>
-                {{-- <a href="{{ route('admin.dashboard') }}"
-                class="admin-nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
-                Dashboard
-                </a> --}}
+
+                <a href="{{ route('admin.dashboard') }}"
+                    class="admin-nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
+                    Dashboard
+                </a>
 
 
                 {{-- Sản phẩm --}}
@@ -174,11 +174,11 @@
                 </a>
 
                 {{-- Đơn hàng --}}
-                <a href="#" class="admin-nav-link">Quản lí đơn hàng</a>
-                {{-- <a href="{{ route('admin.orders.index') }}"
-                class="admin-nav-link {{ request()->routeIs('admin.orders.*') ? 'active' : '' }}">
-                Quản lí đơn hàng
-                </a> --}}
+
+                <a href="{{ route('admin.orders.index') }}"
+                    class="admin-nav-link {{ request()->routeIs('admin.orders.*') ? 'active' : '' }}">
+                    Quản lí đơn hàng
+                </a>
 
                 {{-- Danh mục --}}
 
