@@ -25,13 +25,24 @@
                             <strong class="text-danger">{{ $item->code }}</strong>
                         </p>
                         <p class="mb-0">
-                            Trạng thái: 
-                            @if ($item->used_at)
-                                <span class="badge bg-secondary text-white">Đã sử dụng</span>
-                            @else
-                                <span class="badge bg-success text-white">Chưa dùng</span>
-                            @endif
-                        </p>
+                            {{-- CẬP NHẬT DISPLAY --}}
+    Trạng thái:
+    @if ($item->used_at)
+        {{-- Trường hợp 1: Đã sử dụng --}}
+        <span class="badge bg-secondary text-white">Đã sử dụng</span>
+
+    @elseif ($item->voucher->expires_at && \Carbon\Carbon::parse($item->voucher->expires_at)->isPast())
+        {{-- Trường hợp 2: Chưa dùng nhưng ĐÃ QUÁ HẠN --}}
+        <span class="badge bg-danger text-white">Hết hạn</span>
+    
+    @else
+        {{-- Trường hợp 3: Còn hạn và chưa dùng --}}
+        <span class="badge bg-success text-white">Chưa dùng</span>
+        @if($item->voucher->expires_at)
+            <br><small class="text-muted">HSD: {{ \Carbon\Carbon::parse($item->voucher->expires_at)->format('d/m/Y') }}</small>
+        @endif
+    @endif
+</p>
                     </div>
                     
                     <div class="col-md-3 text-start">

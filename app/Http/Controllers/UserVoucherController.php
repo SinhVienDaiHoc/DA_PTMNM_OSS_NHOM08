@@ -16,6 +16,7 @@ class UserVoucherController extends Controller
             ->orderByDesc('created_at')
             ->get();
             
+            
         return view('user-voucher.index', compact('userVouchers'));
     }
     public function show(UserVoucher $userVoucher)
