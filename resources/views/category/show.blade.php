@@ -31,6 +31,10 @@
                             <form action="{{ route('cart.add', $product->id) }}" method="POST" class="m-0">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $product->id }}">
+                                {{-- FIX BUG thêm input quantity --}}
+                                <input type="hidden" name="quantity" value="1">
+                                {{-- -------------------------------- --}}
+
                                 <button type="submit" class="btn px-3 py-2 h-100" style="background:#4a1f1b;color:#fff;border-radius:0;">
                                     <i class="bi bi-cart"></i>
                                 </button>

@@ -26,6 +26,11 @@ class CartController extends Controller
     {
         $product = Product::findOrFail($id);
         $cart = session()->get('cart', []);
+// --- FIX 1: Validate số lượng khi thêm vào giỏ ---
+        $request->validate([
+            'quantity' => 'required|integer|min:1'
+        ]);
+// --------------------------------------------------
 
         $qty = $request->input('quantity', 1);
 
@@ -48,13 +53,30 @@ class CartController extends Controller
     // Cập nhật số lượng
     public function update(Request $request)
     {
-        if ($request->id && $request->quantity) {
+        // FIX: chặn số lượng âm từ server-side
+        $request->validate([
+            'id' => 'required',
+            'quantity' => 'required|integer|min:1'
+        ], [
+            'quantity.min' => 'Số lượng phải từ 1 trở lên!',
+            'quantity.integer' => 'Số lượng phải là số nguyên!'
+        ]);
+        // ------------------------
+    if ($request->id && $request->quantity) {
             $cart = session()->get('cart');
-            $cart[$request->id]["quantity"] = $request->quantity;
-            session()->put('cart', $cart);
-            return redirect()->back()->with('success', 'Đã cập nhật số lượng!');
+
+            // Kiểm tra xem sản phẩm có thực sự tồn tại trong giỏ không trước khi gán
+            if (isset($cart[$request->id])) {
+                $cart[$request->id]["quantity"] = $request->quantity;
+                session()->put('cart', $cart);
+                return redirect()->back()->with('success', 'Đã cập nhật số lượng!');
+            }
         }
+        
+        return redirect()->back()->with('error', 'Cập nhật thất bại!');
     }
+        
+    
 
     // Xoá 1 sản phẩm khỏi giỏ
     public function remove(Request $request)
