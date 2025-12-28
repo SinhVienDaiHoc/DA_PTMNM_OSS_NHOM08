@@ -18,6 +18,15 @@ class VoucherExchangeController extends Controller
                            ->orderBy('required_points')
                            ->get();
 
+
+         //THÊM ĐIỀU KIỆN RÀNG BUỘC
+         $vouchers = Voucher::where('is_active', true)
+    ->where('required_points', '>', 0)
+    // Thêm dòng này: Chỉ lấy những voucher có hạn sử dụng lớn hơn hoặc bằng thời điểm hiện tại
+    ->where('expires_at', '>=', now()) 
+    ->orderBy('required_points')
+    ->get();                  
+
         //ĐIỂM HIỆN TẠI CỦA CUSTOMER
         // $userPoints = Auth::user()->points ?? 0;
 
