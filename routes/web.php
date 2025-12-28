@@ -58,7 +58,10 @@ Route::prefix('admin')
         // WARNING
         Route::get('/warning', [AdminController::class, 'warning'])->name('warning');
 
-
+        // ORDERS
+        Route::get('/orders', [AdminOrderController::class, 'index'])->name('orders.index');
+        Route::patch('/orders/{order}/status', [AdminOrderController::class, 'updateStatus'])
+            ->name('orders.updateStatus');
 
         // PRODUCTS
         Route::prefix('products')->name('product.')->group(function () {
