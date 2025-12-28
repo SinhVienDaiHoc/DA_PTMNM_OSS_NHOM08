@@ -167,11 +167,11 @@
 
 
                 {{-- Sản phẩm --}}
-                <a href="#" class="admin-nav-link">Quản lí sản phẩm</a>
-                {{-- <a href="{{ route('admin.product.qlysanpham') }}"
-                class="admin-nav-link {{ request()->routeIs('admin.product.qlysanpham') ? 'active' : '' }}">
-                Quản lí sản phẩm
-                </a> --}}
+
+                <a href="{{ route('admin.product.qlysanpham') }}"
+                    class="admin-nav-link {{ request()->routeIs('admin.product.qlysanpham') ? 'active' : '' }}">
+                    Quản lí sản phẩm
+                </a>
 
                 {{-- Đơn hàng --}}
                 <a href="#" class="admin-nav-link">Quản lí đơn hàng</a>
@@ -181,11 +181,11 @@
                 </a> --}}
 
                 {{-- Danh mục --}}
-                <a href="#" class="admin-nav-link">Quản lí danh mục</a>
-                {{-- <a href="{{ route('admin.category.index') }}"
-                class="admin-nav-link {{ request()->routeIs('admin.category.index') ? 'active' : '' }}">
-                Quản lí danh mục
-                </a> --}}
+
+                <a href="{{ route('admin.category.index') }}"
+                    class="admin-nav-link {{ request()->routeIs('admin.category.index') ? 'active' : '' }}">
+                    Quản lí danh mục
+                </a>
 
                 {{-- Khách hàng --}}
 
