@@ -77,6 +77,9 @@ Route::prefix('admin')
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
+// TÌM KIẾM
+Route::get('/search', [ProductController::class, 'search'])->name('search');
+
 //CÁC CHÍNH SÁCH CỦA CỬA HÀNG
 Route::get('/chinhsach', [HomeController::class, 'chinhsach'])->name('chinhsach');
 Route::get('/chinhsach', [PolicyController::class, 'index'])->name('chinhsach.mainchinhsach');
@@ -103,7 +106,31 @@ Route::get('/san-pham/{id}', [ProductController::class, 'detail'])->name('produc
 Route::get('/thanhtoan', [CheckoutController::class, 'show'])->name('checkout.show');
 Route::post('/thanhtoan', [CheckoutController::class, 'process'])->name('checkout.process');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/don-hang', [UserOrderController::class, 'index'])->name('orders.index');
+    Route::get('/don-hang/{order}', [UserOrderController::class, 'show'])->name('orders.show');
+    Route::delete('/don-hang/{order}', [UserOrderController::class, 'destroy'])->name('orders.destroy');
 
+    //VOUCHER
+    Route::get('/doi-voucher', [VoucherExchangeController::class, 'index'])->name('voucher.exchange.index');
+    Route::post('/doi-voucher/{voucher}', [VoucherExchangeController::class, 'exchange'])->name('voucher.exchange.exchange');
+
+    //Checkout + voucher
+Route::post('/apply-voucher', [CheckoutController::class, 'applyVoucher'])->name('checkout.applyVoucher');
+Route::post('/remove-voucher', [CheckoutController::class, 'removeVoucher'])->name('checkout.removeVoucher');
+
+//PACKAGE VOUCHER của CLIENT ( customer)
+Route::get('/my-vouchers/{userVoucher}', [\App\Http\Controllers\UserVoucherController::class, 'show'])
+    ->name('user.vouchers.show');
+Route::get('/my-vouchers', [\App\Http\Controllers\UserVoucherController::class, 'index'])
+    ->name('user-voucher.index');
+        //PROFILE
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('/password', [ProfileController::class, 'changePassword'])->name('user-password.update');
+
+
+});
 //====================== END CLIENT ROUTE============================================
 
 

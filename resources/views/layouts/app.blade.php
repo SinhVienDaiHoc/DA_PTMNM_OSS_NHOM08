@@ -80,8 +80,8 @@
         {{-- end Logo --}}
 
         {{-- start Tìm kiếm desktop --}}
-        {{-- {{ route('search') }} thay vao action --}}
-        <form action="" method="GET" class="flex-grow-1 d-none d-md-block">
+        
+        <form action="{{ route('search') }}" method="GET" class="flex-grow-1 d-none d-md-block">
           <div class="input-group">
             <input class="form-control search-input px-4"
               type="search"
@@ -215,16 +215,16 @@
         <li><a class="dropdown-item py-2" href="{{ route('chinhsachchung') }}">Các chính sách của cửa hàng</a></li>
 
         {{-- List đổi thưởng --}}
-        {{-- {{ route('voucher.exchange.index') }} --}}
-        <li><a class="dropdown-item fw-bold text-success" href="">
+        {{--  --}}
+        <li><a class="dropdown-item fw-bold text-success" href="{{ route('voucher.exchange.index') }}">
                 <i class="bi bi-gift"></i> Đổi thưởng Voucher
              </a></li>
 
         {{-- Túi chứa voucher --}}
 
         <li class="nav-item">
-          {{-- {{ route('user-voucher.index') }} --}}
-    <a href="" class="nav-link">
+          {{--  --}}
+    <a href="{{ route('user-voucher.index') }}" class="nav-link">
         <i class="fas fa-ticket-alt"></i>
         <p>Túi Voucher Của Tôi</p>
     </a>
