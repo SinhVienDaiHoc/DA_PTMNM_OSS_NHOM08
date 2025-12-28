@@ -60,7 +60,29 @@ Route::prefix('admin')
 
 
 
+        // PRODUCTS
+        Route::prefix('products')->name('product.')->group(function () {
+            Route::get('/', [AdminProductController::class, 'index'])->name('qlysanpham');
+            Route::get('/create', [AdminProductController::class, 'create'])->name('create');
+            Route::post('/store', [AdminProductController::class, 'store'])->name('store');
 
+            Route::get('/edit/{id}', [AdminProductController::class, 'edit'])->name('edit');
+            Route::put('/update/{id}', [AdminProductController::class, 'update'])->name('update');
+
+            Route::delete('/delete/{id}', [AdminProductController::class, 'destroy'])->name('destroy');
+        });
+
+        // CATEGORIES
+        Route::prefix('categories')->name('category.')->group(function () {
+            Route::get('/', [AdminCategoryController::class, 'index'])->name('index');
+            Route::get('/create', [AdminCategoryController::class, 'create'])->name('create');
+            Route::post('/store', [AdminCategoryController::class, 'store'])->name('store');
+
+            Route::get('/edit/{id}', [AdminCategoryController::class, 'edit'])->name('edit');
+            Route::put('/update/{id}', [AdminCategoryController::class, 'update'])->name('update');
+
+            Route::delete('/delete/{id}', [AdminCategoryController::class, 'destroy'])->name('destroy');
+        });
 
         //VOUCHER
         Route::prefix('voucher')->name('voucher.')->group(function () {
