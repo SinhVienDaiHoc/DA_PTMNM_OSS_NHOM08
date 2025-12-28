@@ -196,11 +196,11 @@
 
 
                 {{-- Quản lí voucher --}}
-                <a href="#" class="admin-nav-link">Quản lí voucher</a>
-                {{-- <a href="{{ route('admin.voucher.index') }}"
-                class="admin-nav-link {{ request()->routeIs('admin.voucher.index') ? 'active' : '' }}">
-                Quản lí voucher
-                </a> --}}
+
+                <a href="{{ route('admin.voucher.index') }}"
+                    class="admin-nav-link {{ request()->routeIs('admin.voucher.index') ? 'active' : '' }}">
+                    Quản lí voucher
+                </a>
 
             </nav>
 
