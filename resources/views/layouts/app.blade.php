@@ -74,9 +74,9 @@
       <div class="d-flex align-items-center gap-3">
 
         {{-- start Logo --}}
-        <a href="{{ route('home') }}" class="text-decoration-none d-flex align-items-center gap-2">
+        {{-- <a href="{{ route('home') }}" class="text-decoration-none d-flex align-items-center gap-2">
           <span class="brand fs-4">STU Bakery</span>
-        </a>
+        </a> --}}
         {{-- end Logo --}}
 
         {{-- start Tìm kiếm desktop --}}
